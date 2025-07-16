@@ -1,0 +1,52 @@
+{
+  "name": "javascript-unit-test-jasmine",
+  "version": "1.0.0",
+  "description": "A comprehensive demonstration project for JavaScript unit testing using the Jasmine testing framework",
+  "main": "src/Calculator.js",
+  "scripts": {
+    "test": "jasmine",
+    "test:browser": "open SpecRunner.html",
+    "serve": "http-server -p 8000",
+    "coverage": "nyc jasmine",
+    "lint": "eslint src/ spec/",
+    "format": "prettier --write src/ spec/ docs/",
+    "start": "npm run serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hkevin01/javascript-unit-test-jasmine.git"
+  },
+  "keywords": [
+    "javascript",
+    "testing",
+    "jasmine",
+    "unit-testing",
+    "bdd",
+    "behavior-driven-development",
+    "tdd",
+    "test-driven-development",
+    "examples",
+    "tutorial"
+  ],
+  "author": "Kevin H",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hkevin01/javascript-unit-test-jasmine/issues"
+  },
+  "homepage": "https://github.com/hkevin01/javascript-unit-test-jasmine#readme",
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "http-server": "^14.0.0",
+    "jasmine": "^5.0.0",
+    "nyc": "^15.0.0",
+    "prettier": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

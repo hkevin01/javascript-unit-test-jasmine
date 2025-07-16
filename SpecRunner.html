@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jasmine Spec Runner - JavaScript Unit Testing</title>
+    
+    <!-- Jasmine CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/5.1.0/jasmine.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/jasmine-custom.css">
+    
+    <!-- Jasmine JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/5.1.0/jasmine.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/5.1.0/jasmine-html.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/5.1.0/boot0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/5.1.0/boot1.min.js"></script>
+</head>
+<body>
+    <!-- Custom Banner -->
+    <div class="jasmine-banner">
+        <h1>🧪 JavaScript Unit Testing with Jasmine</h1>
+        <p>Comprehensive testing examples and best practices</p>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <!-- Source Files -->
+    <script src="src/Calculator.js"></script>
+    <script src="src/models/Person.js"></script>
+    
+    <!-- Test Files -->
+    <script src="spec/CalculatorSpec.js"></script>
+    <script src="spec/PersonSpec.js"></script>
+    <script src="spec/HelloWorldSpec.js"></script>
+    
+    <!-- Additional utility for progress tracking -->
+    <script>
+        // Custom progress tracking
+        window.addEventListener('load', function() {
+            // Wait for Jasmine to be ready
+            setTimeout(function() {
+                if (window.jasmine && window.jasmine.getEnv) {
+                    const env = jasmine.getEnv();
+                    let totalSpecs = 0;
+                    let completedSpecs = 0;
+                    
+                    env.addReporter({
+                        suiteStarted: function(result) {
+                            // Count total specs
+                            const countSpecs = function(suite) {
+                                suite.children.forEach(function(child) {
+                                    if (child.children) {
+                                        countSpecs(child);
+                                    } else {
+                                        totalSpecs++;
+                                    }
+                                });
+                            };
+                            countSpecs(result);
+                        },
+                        
+                        specDone: function(result) {
+                            completedSpecs++;
+                            const progress = (completedSpecs / totalSpecs) * 100;
+                            const progressFill = document.getElementById('progressFill');
+                            if (progressFill) {
+                                progressFill.style.width = progress + '%';
+                            }
+                        },
+                        
+                        jasmineDone: function() {
+                            const progressFill = document.getElementById('progressFill');
+                            if (progressFill) {
+                                progressFill.style.width = '100%';
+                            }
+                        }
+                    });
+                }
+            }, 100);
+        });
+    </script>
+</body>
+</html>
