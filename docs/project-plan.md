@@ -72,12 +72,15 @@ javascript-unit-test-jasmine/
 
 ### Phase 1: Basic Setup
 - [x] Create project structure
+- [x] Set up comprehensive documentation
+- [x] Configure GitHub workflows and templates
+- [x] Add GitHub Copilot instructions
 - [ ] Set up Jasmine framework
 - [ ] Create basic test examples
 - [ ] Configure SpecRunner.html
 
 ### Phase 2: Core Functionality
-- [ ] Implement sample classes and functions
+- [x] Implement sample classes and functions (Calculator, Person)
 - [ ] Write comprehensive test suites
 - [ ] Add custom matchers
 - [ ] Implement spy examples
